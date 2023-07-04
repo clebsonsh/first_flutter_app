@@ -13,31 +13,21 @@ class DiceRoller extends StatefulWidget {
 }
 
 class _DiceRollerState extends State<DiceRoller> {
-  List<String> diceImages = [
-    'assets/images/dice-1.png',
-    'assets/images/dice-2.png',
-    'assets/images/dice-3.png',
-    'assets/images/dice-4.png',
-    'assets/images/dice-5.png',
-    'assets/images/dice-6.png',
-  ];
-
-  var activeDiceImage = '';
+  var currentDiceRoll = 1;
 
   rollDice() {
     setState(() {
-      activeDiceImage = diceImages[Random().nextInt(diceImages.length)];
+      currentDiceRoll = Random().nextInt(6) + 1;
     });
   }
 
   @override
   Widget build(context) {
-    rollDice();
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(
-          activeDiceImage,
+          'assets/images/dice-$currentDiceRoll.png',
           width: 200,
         ),
         const SizedBox(height: 20),

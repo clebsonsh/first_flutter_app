@@ -1,5 +1,6 @@
-import 'package:first_app/components/styled_text.dart';
 import 'package:flutter/material.dart';
+
+import 'package:first_app/components/styled_text.dart';
 
 const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
@@ -25,13 +26,13 @@ class GradientContainer extends StatelessWidget {
       ),
       child: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
               'assets/images/dice-4.png',
               width: 200,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             TextButton(
               onPressed: rollDice,
               child: const StyledText('Roll Dice'),

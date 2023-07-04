@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:first_app/components/styled_text.dart';
-
 const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer(
-      {super.key, required this.startColor, required this.endColor});
+  const GradientContainer({super.key, required this.colors});
 
-  final Color startColor;
-  final Color endColor;
+  final List<Color> colors;
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +15,14 @@ class GradientContainer extends StatelessWidget {
         gradient: LinearGradient(
           begin: startAlignment,
           end: endAlignment,
-          colors: [
-            startColor,
-            endColor,
-          ],
+          colors: colors,
         ),
       ),
-      child: const Center(
-        child: StyledText('Hello, World!'),
+      child: Center(
+        child: Image.asset(
+          'assets/images/dice-4.png',
+          width: 200,
+        ),
       ),
     );
   }
